@@ -1,6 +1,18 @@
-import { readJSONFile } from "@ts-base/io/readJSONFile";
+import { readFile as readFileFs } from "fs";
+import { resolve } from "path";
+import { promisify } from "util";
 
-import { Qty } from "../src";
+import { Qty } from "../index";
+
+const readFile = promisify(readFileFs);
+
+function readUTF8File(...paths: string[]): Promise<string> {
+	return readFile(resolve(...paths), "utf8");
+}
+
+function readJSONFile(...paths: string[]): Promise<any> {
+	return readUTF8File(...paths).then((fileContents) => JSON.parse(fileContents));
+}
 
 // Big list of naughty strings
 let blns: string[];

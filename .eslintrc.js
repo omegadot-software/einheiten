@@ -32,7 +32,6 @@ const config = {
 		"plugin:@typescript-eslint/recommended-requiring-type-checking",
 		// Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin
 		// that would conflict with prettier
-		"prettier/@typescript-eslint",
 		"plugin:jest/recommended",
 		"plugin:jest/style",
 		"plugin:import/typescript",
@@ -72,7 +71,7 @@ const config = {
 				"import/order": [
 					"error",
 					{
-						alphabetize: {order: "asc"},
+						alphabetize: { order: "asc" },
 						groups: ["builtin", "external", ["sibling", "parent"]],
 						"newlines-between": "always",
 					},
@@ -88,10 +87,7 @@ const config = {
 		"no-console": "error",
 		"no-return-assign": "error",
 		"no-useless-constructor": "off", // ESLint rule needs to be turned off to use the typescript specific one below
-		"@typescript-eslint/consistent-type-assertions": [
-			"error",
-			{assertionStyle: "never"},
-		],
+		"@typescript-eslint/consistent-type-assertions": ["error", { assertionStyle: "never" }],
 		"@typescript-eslint/consistent-type-definitions": ["error", "interface"],
 		"@typescript-eslint/explicit-function-return-type": "off",
 		"@typescript-eslint/explicit-module-boundary-types": "off",
@@ -112,7 +108,7 @@ const config = {
 		"@typescript-eslint/no-empty-interface": "off",
 		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/no-floating-promises": "error",
-		"@typescript-eslint/no-namespace": ["error", {allowDeclarations: true}],
+		"@typescript-eslint/no-namespace": ["error", { allowDeclarations: true }],
 		"@typescript-eslint/no-unnecessary-type-assertion": "off",
 		"@typescript-eslint/no-use-before-define": "off",
 		"@typescript-eslint/no-useless-constructor": "error",
@@ -134,13 +130,12 @@ const config = {
 		"@typescript-eslint/strict-boolean-expressions": [
 			"error",
 			{
-				
 				allowNullableBoolean: true,
 				allowNullableString: true,
-			}
+			},
 		],
 		"@typescript-eslint/unified-signatures": "error",
-		"react/prop-types": "off"
+		"react/prop-types": "off",
 	},
 };
 
@@ -148,8 +143,6 @@ function filterExistingPaths(paths) {
 	return paths.filter((path) => fs.existsSync(path));
 }
 
-config.parserOptions.project = filterExistingPaths(
-	config.parserOptions.project
-);
+config.parserOptions.project = filterExistingPaths(config.parserOptions.project);
 
 module.exports = config;

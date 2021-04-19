@@ -1,5 +1,3 @@
-import { assertInstanceof } from "@ts-base/ts-assert/assertInstanceof";
-
 import { isQty, Qty } from "./constructor";
 import { OUTPUT_MAP, PREFIX_VALUES, UNITY_ARRAY } from "./definitions";
 import { Source, UnitSource } from "./types";
@@ -68,8 +66,8 @@ export function toString(
 	} else if (isString(targetUnitsOrMaxDecimalsOrPrec)) {
 		targetUnits = targetUnitsOrMaxDecimalsOrPrec;
 	} else if (isQty(targetUnitsOrMaxDecimalsOrPrec)) {
-		assertInstanceof(targetUnitsOrMaxDecimalsOrPrec, Qty);
-		return this.toPrec(targetUnitsOrMaxDecimalsOrPrec).toString(maxDecimals);
+		// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+		return this.toPrec(targetUnitsOrMaxDecimalsOrPrec as Qty).toString(maxDecimals);
 	} else {
 		targetUnits = this;
 	}
