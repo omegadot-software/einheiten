@@ -37,6 +37,6 @@
     "setupFiles": [
       "reflect-metadata"
     ],
-    "testEnvironment": "jsdom",
+    "testEnvironment": "jsdom"
   }
 }
