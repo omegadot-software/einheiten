@@ -40,3 +40,4 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_PUB_TOKEN }}
+          access: "public"
