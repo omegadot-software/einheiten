@@ -1,7 +1,6 @@
 import { Qty } from "../index";
 import QtyError from "./error";
 import { IRegularObject, IScalarAndUnit, UnitDefinition } from "./types";
-import { isNumber } from "./utils";
 
 export const UNITS: IRegularObject<UnitDefinition> = {
 	/* prefixes */
@@ -572,7 +571,7 @@ export const UNITY_ARRAY = [UNITY];
  */
 function validateUnitDefinition(unitDef: string, definition: UnitDefinition) {
 	const [, scalar, , numerator = [], denominator = []] = definition;
-	if (!isNumber(scalar)) {
+	if (!Number.isFinite(scalar)) {
 		throw new QtyError(`${unitDef}: Invalid unit definition. ` + `'scalar' must be a number`);
 	}
 
