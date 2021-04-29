@@ -233,12 +233,8 @@ function cleanTerms(
 	}
 
 	// Flatten
-	const flatNum = num.reduce((a: string[], b) => {
-		return a.concat(b);
-	}, []);
-	const flatDen = den.reduce((a: string[], b) => {
-		return a.concat(b);
-	}, []);
+	const flatNum: string[] = num.flat();
+	const flatDen: string[] = den.flat();
 
 	return [flatNum, flatDen, scale];
 }
