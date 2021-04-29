@@ -1,12 +1,22 @@
 {
   "name": "@omegadot/einheiten",
   "version": "0.0.2",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es6/index.js",
+  "types": "dist/types/index.d.ts",
   "repository": "https://github.com/omegadot-software/einheiten",
   "author": "Nathanael Ruf",
   "license": "MIT",
+  "files": [
+    "dist",
+    "!**/tsconfig.tsbuildinfo"
+  ],
   "scripts": {
     "test": "jest",
+    "build": "yarn build:cjs && yarn build:es6 && yarn build:types",
+    "build:cjs": "yarn tsc -p . --outDir dist/cjs --module commonjs",
+    "build:es6": "yarn tsc -p . --outDir dist/es6 --module es6",
+    "build:types": "yarn tsc -p . --outDir dist/types --declaration --emitDeclarationOnly"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -1,28 +1,25 @@
 {
-  "compilerOptions": {
-    "outDir": "dist",
-    "declaration": true,
-	"strict": true,
-	"target": "ES2019",
-	"module": "CommonJS",
-	"esModuleInterop": true,
-	"allowSyntheticDefaultImports": true,
-	"forceConsistentCasingInFileNames": true,
-	"moduleResolution": "node",
-	"resolveJsonModule": true,
-	"emitDecoratorMetadata": true,
-	"experimentalDecorators": true,
-	"isolatedModules": true,
-	"jsx": "preserve",
-	"types": [
-	  "node",
-	  "jest"
-	],
-	"baseUrl": "./typings",
-	"typeRoots": [
-	  "typings",
-	  "node_modules/@types"
+	"compilerOptions": {
+		"strict": true,
+		"incremental": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"moduleResolution": "node",
+		"target": "ES2019",
+		"types": [
+			"node",
+			"jest"
+		],
+		"baseUrl": "./typings",
+		"typeRoots": [
+			"typings",
+			"node_modules/@types"
+		]
+	},
+	"include": [
+		"src/**/*",
 	]
-  },
-  "include": ["**/*", "**/.*"]
 }
