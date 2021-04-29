@@ -63,7 +63,7 @@ export function isBase(this: Qty): boolean {
 		}
 	}, this);
 	if (this._isBase === false) {
-		return this._isBase;
+		return false;
 	}
 	this._isBase = true;
 	return this._isBase;

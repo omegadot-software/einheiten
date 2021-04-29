@@ -141,7 +141,6 @@ export class Qty {
 
 	// Global API as static functions
 
-	static version: string;
 	static getKinds = getKinds;
 	static getAliases = getAliases;
 	static getUnits = getUnits;
