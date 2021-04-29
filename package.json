@@ -6,7 +6,6 @@
   "repository": "https://github.com/omegadot-software/einheiten",
   "author": "Nathanael Ruf",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
     "@types/jest": "^26.0.22",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
