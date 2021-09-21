@@ -1384,6 +1384,12 @@ describe("js-quantities", function () {
 				Qty.parse("VL170111115924");
 			}).not.toThrow();
 		});
+
+		it("should support the kind mass flow", function () {
+			expect(Qty.parse("kg/s")?.kind()).toBe("mass_flow");
+			expect(Qty.parse("g/s")?.kind()).toBe("mass_flow");
+			expect(Qty.parse("kg/h")?.kind()).toBe("mass_flow");
+		});
 	});
 
 	describe("Qty.swiftConverter", function () {

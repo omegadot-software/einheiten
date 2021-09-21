@@ -27,6 +27,7 @@ const KINDS: IRegularObject<string> = {
 	"400": "temperature",
 	"7941": "yank",
 	"7942": "power",
+	"7980": "mass_flow",
 	"7959": "pressure",
 	"7961": "force",
 	"7962": "energy",
