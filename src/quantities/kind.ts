@@ -31,6 +31,7 @@ const KINDS: IRegularObject<string> = {
 	"7961": "force",
 	"7962": "energy",
 	"7979": "viscosity",
+	"7980": "mass_flow",
 	"7981": "momentum",
 	"7982": "angular_momentum",
 	"7997": "density",
