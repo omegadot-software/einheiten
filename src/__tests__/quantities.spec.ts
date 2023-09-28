@@ -3,6 +3,7 @@ import { resolve } from "path";
 import { promisify } from "util";
 
 import { Qty } from "../index";
+import { UnitKind } from "../quantities/kind";
 
 const readFile = promisify(readFileFs);
 
@@ -1467,8 +1468,11 @@ describe("js-quantities", function () {
 			expect(Qty.getUnits()).toContain("sievert");
 		});
 		it("should throw unknown kind", function () {
+			// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+			const bogusKind = "bogusKind" as UnitKind;
+
 			expect(function () {
-				Qty.getUnits("bogusKind");
+				Qty.getUnits(bogusKind);
 			}).toThrow();
 		});
 	});

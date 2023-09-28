@@ -1,6 +1,7 @@
 import { Qty } from "../index";
 import QtyError from "./error";
 import { IRegularObject, IScalarAndUnit, UnitDefinition } from "./types";
+import { UnitKind } from "./kind";
 
 export const UNITS: IRegularObject<UnitDefinition> = {
 	/* prefixes */
@@ -628,7 +629,7 @@ for (const unitDef in UNITS) {
  * @returns {array} names of units
  * @throws {QtyError} if kind is unknown
  */
-export function getUnits(kind?: string): string[] {
+export function getUnits(kind?: UnitKind): string[] {
 	const units = [];
 	const unitKeys = Object.keys(UNITS);
 	if (typeof kind === "undefined") {

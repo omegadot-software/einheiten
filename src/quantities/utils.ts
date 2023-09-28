@@ -6,7 +6,7 @@
  * @returns {boolean} true if value is a string, false otherwise
  */
 import { isPrefix } from "./definitions";
-import type { Kinds } from "./kind";
+import type { UnitKind } from "./kind";
 
 export function isString(value: any): value is string {
 	return typeof value === "string" || value instanceof String;
@@ -46,7 +46,7 @@ export function identity(value: number | number[]) {
  *
  * @returns {string[]} a new array of strings without duplicates
  */
-export function uniq(strings: Kinds[]): Kinds[] {
+export function uniq(strings: UnitKind[]): UnitKind[] {
 	const seen: { [key: string]: boolean } = {};
 	return strings.filter((item) => {
 		// eslint-disable-next-line no-prototype-builtins

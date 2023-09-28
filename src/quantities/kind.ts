@@ -2,7 +2,7 @@ import { Qty } from "./constructor";
 import { IRegularObject } from "./types";
 import { uniq } from "./utils";
 
-export type Kinds =
+export type UnitKind =
 	| "elastance"
 	| "resistance"
 	| "inductance"
@@ -51,7 +51,7 @@ export type Kinds =
 	| "angular_velocity"
 	| "angle";
 
-const kindsMapping: IRegularObject<Kinds> = {
+const kindsMapping: IRegularObject<UnitKind> = {
 	"-312078": "elastance",
 	"-312058": "resistance",
 	"-312038": "inductance",
@@ -108,12 +108,12 @@ const kindsMapping: IRegularObject<Kinds> = {
  * Returns the list of available well-known kinds of units, e.g.
  * "radiation" or "length".
  *
- * @returns {Kinds[]} names of kinds of units
+ * @returns {UnitKind[]} names of kinds of units
  */
-export function getKinds(): Kinds[] {
+export function getKinds(): UnitKind[] {
 	return uniq(Object.values(kindsMapping));
 }
 
-export function kind(this: Qty): Kinds {
+export function kind(this: Qty): UnitKind {
 	return kindsMapping[this.signature.toString()];
 }
