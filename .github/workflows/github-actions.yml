@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
       - run: yarn
       - run: yarn build
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist
@@ -38,7 +38,7 @@ jobs:
         with:
           name: dist
           path: dist
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_PUB_TOKEN }}
           access: "public"
