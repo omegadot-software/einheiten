@@ -9,17 +9,9 @@
 		"isolatedModules": true,
 		"moduleResolution": "node",
 		"target": "ES2019",
-		"types": [
-			"node",
-			"jest"
-		],
+		"types": ["node", "jest"],
 		"baseUrl": "./typings",
-		"typeRoots": [
-			"typings",
-			"node_modules/@types"
-		]
+		"typeRoots": ["typings", "node_modules/@types"]
 	},
-	"include": [
-		"src/**/*",
-	]
+	"include": ["src/**/*"]
 }
