@@ -2,7 +2,56 @@ import { Qty } from "./constructor";
 import { IRegularObject } from "./types";
 import { uniq } from "./utils";
 
-const KINDS: IRegularObject<string> = {
+export type Kinds =
+	| "elastance"
+	| "resistance"
+	| "inductance"
+	| "potential"
+	| "specific_volume"
+	| "snap"
+	| "jolt"
+	| "acceleration"
+	| "radiation"
+	| "frequency"
+	| "speed"
+	| "volumetric_flow"
+	| "wavenumber"
+	| "unitless"
+	| "length"
+	| "area"
+	| "volume"
+	| "time"
+	| "temperature"
+	| "yank"
+	| "power"
+	| "pressure"
+	| "force"
+	| "energy"
+	| "viscosity"
+	| "mass_flow"
+	| "momentum"
+	| "angular_momentum"
+	| "density"
+	| "area_density"
+	| "mass"
+	| "radiation_exposure"
+	| "magnetism"
+	| "current"
+	| "charge"
+	| "conductance"
+	| "capacitance"
+	| "activity"
+	| "molar_concentration"
+	| "substance"
+	| "illuminance"
+	| "luminous_power"
+	| "currency"
+	| "information_rate"
+	| "information"
+	| "angular_velocity"
+	| "angle";
+
+const kindsMapping: IRegularObject<Kinds> = {
 	"-312078": "elastance",
 	"-312058": "resistance",
 	"-312038": "inductance",
@@ -59,16 +108,12 @@ const KINDS: IRegularObject<string> = {
  * Returns the list of available well-known kinds of units, e.g.
  * "radiation" or "length".
  *
- * @returns {string[]} names of kinds of units
+ * @returns {Kinds[]} names of kinds of units
  */
-export function getKinds(): string[] {
-	return uniq(
-		Object.keys(KINDS).map((knownSignature) => {
-			return KINDS[knownSignature];
-		})
-	);
+export function getKinds(): Kinds[] {
+	return uniq(Object.values(kindsMapping));
 }
 
-export function kind(this: Qty): string {
-	return KINDS[this.signature.toString()];
+export function kind(this: Qty): Kinds {
+	return kindsMapping[this.signature.toString()];
 }
